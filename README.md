@@ -67,8 +67,8 @@ This project is a simple CRUD application built using the MEVN stack (MongoDB, E
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/mirakib/DevOps-Projects 
-cd Docker/CRUD/MEVN
+git clone https://github.com/mirakib/dockerize-mevn-stack-crud-app
+cd dockerize-mevn-stack-crud-app
 ```
 2. Build and run the application using Docker Compose:
 ```bash
