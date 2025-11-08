@@ -6,7 +6,7 @@
       </a>
     </p>
     <header>
-      <h1>User Manager</h1>
+      <h1>User Dashboard</h1>
     </header>
 
     <main class="content">
@@ -52,7 +52,7 @@
     </main>
 
     <footer>
-      <p>Developed by <strong>Your Name</strong> | © 2025</p>
+      <p>Developed by <strong>Moshrekul Islam</strong> | © 2025</p>
     </footer>
   </div>
 </template>
@@ -126,7 +126,7 @@ header {
   text-align: center;
   background: #4a90e2;
   color: #fff;
-  padding: 15px 0;
+  padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -142,8 +142,8 @@ header {
 /* Form Section */
 .form-section {
   background: #ffffff;
-  padding: 25px;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 2px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   width: 35%;
   min-width: 300px;
