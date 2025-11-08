@@ -1,0 +1,51 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: nginx
+    image: mevn-crud-frontend:latest
+    container_name: mevn_frontend
+    ports:
+      - "${HOST_PORT}:80"
+    depends_on:
+      - api
+    networks:
+      - mevn-net
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: production
+    image: mevn-crud-api:latest
+    container_name: mevn_api
+    environment:
+      - MONGO_URI=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/${MONGO_DB}?authSource=admin
+      - PORT=${API_PORT}
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    depends_on:
+      - db
+    networks:
+      - mevn-net
+
+  db:
+    image: mongo:latest
+    container_name: mevn_db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DB}
+    volumes:
+      - mevn_mongo_data:/data/db
+    networks:
+      - mevn-net
+
+volumes:
+  mevn_mongo_data:
+
+networks:
+  mevn-net:
+    driver: bridge
